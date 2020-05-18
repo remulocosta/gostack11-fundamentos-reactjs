@@ -23,7 +23,13 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "import-helpers"
+  ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
@@ -31,6 +37,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
@@ -43,6 +50,20 @@
       {
         "ts": "never",
         "tsx": "never"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "module",
+          "/^@shared/",
+          "/^~/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
   },
